@@ -1,0 +1,22 @@
+.startbtn {
+    display: inline-block;
+    padding: 0px;
+    margin: 20px;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    width: 30%;
+    min-width: 50px;
+    max-width: 300px;
+    height: 100px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    border: 0px solid transparent;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #ffd5a3;
+    border-color: #000000;
+  }
