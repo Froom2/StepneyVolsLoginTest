@@ -23,6 +23,7 @@ export class AuthService {
           firebase.auth().currentUser.getIdToken()
             .then(
               (token: string) => {
+                console.log(token);
                 this.loggedIn = true;
                 this.loggedInChanged.next(this.loggedIn);
               },

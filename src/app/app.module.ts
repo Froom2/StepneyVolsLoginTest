@@ -6,6 +6,10 @@ import { StartComponent } from './start/start.component';
 import { SignInComponent } from './signin/signin.component';
 import { ThankyouComponent } from './thankyou/thankyou.component';
 import { ArriveComponent } from './arrive/arrive.component';
+import {FormsModule} from '@angular/forms';
+import {AppRoutingModule} from './app-routing.module';
+import {ArriveService} from './arrive/arrive.service';
+import {AuthService} from './providers/auth.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +20,14 @@ import { ArriveComponent } from './arrive/arrive.component';
     ArriveComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ArriveService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
