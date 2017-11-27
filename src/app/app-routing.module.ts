@@ -7,7 +7,7 @@ import {ArriveComponent} from './arrive/arrive.component';
 import {CanActivateViaAuthGuard} from './shared/authGuard';
 
 const appRoutes: Routes = [
-    { path: '', component: SignInComponent, canActivate: [CanActivateViaAuthGuard] },
+    { path: '', component: SignInComponent },
     { path: 'start', component: StartComponent, canActivate: [CanActivateViaAuthGuard] },
     { path: 'thankyou', component: ThankyouComponent, canActivate: [CanActivateViaAuthGuard] },
     { path: 'arrive', component: ArriveComponent, canActivate: [CanActivateViaAuthGuard] }
