@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ArriveService } from './arrive.service';
+import { ArriveService } from '../services/arrive.service';
 
 @Component({
   selector: 'app-signin',

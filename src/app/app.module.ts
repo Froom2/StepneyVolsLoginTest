@@ -8,8 +8,9 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
 import { ArriveComponent } from './arrive/arrive.component';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
-import {ArriveService} from './arrive/arrive.service';
-import {AuthService} from './providers/auth.service';
+import {ArriveService} from './services/arrive.service';
+import {AuthService} from './services/auth.service';
+import {CanActivateViaAuthGuard} from './shared/authGuard'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {AuthService} from './providers/auth.service';
   ],
   providers: [
     ArriveService,
-    AuthService
+    AuthService,
+    CanActivateViaAuthGuard
   ],
   bootstrap: [AppComponent]
 })

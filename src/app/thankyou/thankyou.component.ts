@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArriveService } from '../arrive/arrive.service'
+import { ArriveService } from '../services/arrive.service'
 import { Router } from '@angular/router';
 
 @Component({

@@ -18,7 +18,6 @@ export class StartComponent implements OnInit {
   }
 
   signIn() {
-    console.log('Hello')
     this.router.navigate(['arrive']);
   }
 

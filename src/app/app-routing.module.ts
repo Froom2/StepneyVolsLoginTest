@@ -4,12 +4,13 @@ import {SignInComponent} from './signin/signin.component';
 import {StartComponent} from './start/start.component';
 import {ThankyouComponent} from './thankyou/thankyou.component';
 import {ArriveComponent} from './arrive/arrive.component';
+import {CanActivateViaAuthGuard} from './shared/authGuard';
 
 const appRoutes: Routes = [
-    { path: '', component: SignInComponent },
-    { path: 'start', component: StartComponent},
-    { path: 'thankyou', component: ThankyouComponent},
-    { path: 'arrive', component: ArriveComponent}
+    { path: '', component: SignInComponent, canActivate: [CanActivateViaAuthGuard] },
+    { path: 'start', component: StartComponent, canActivate: [CanActivateViaAuthGuard] },
+    { path: 'thankyou', component: ThankyouComponent, canActivate: [CanActivateViaAuthGuard] },
+    { path: 'arrive', component: ArriveComponent, canActivate: [CanActivateViaAuthGuard] }
 ]
 
 @NgModule({
