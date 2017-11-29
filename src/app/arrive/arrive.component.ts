@@ -24,7 +24,7 @@ export class ArriveComponent implements OnInit {
   signIn(form: NgForm) {
     this.name = form.value.nameInput;
 
-    this.arriveService.addSignedInUser(this.name);
+    this.arriveService.arriveUser(this.name);
 
     this.router.navigate(['thankyou']);
   }

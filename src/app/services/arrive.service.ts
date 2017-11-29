@@ -1,11 +1,27 @@
-export class ArriveService {
-    signedInUser: string;
+import * as firebase from 'firebase';
 
-    addSignedInUser(signedInUser: string) {
-        this.signedInUser = signedInUser
+export class ArriveService {
+    arrivedUser: string;
+    arrivedDateTime: Date;
+
+
+    arriveUser(signedInUser: string) {
+        this.arrivedUser = signedInUser;
+
+        
+        this.arrivedDateTime = new Date();
+
+        var nowString = this.arrivedDateTime.toJSON()
+        console.log(nowString);
+
+
+        firebase.database().ref('arrival').push({
+            name: this.arrivedUser,
+            dateTime: nowString
+        });
     }
 
-    getSignedInUser() {
-        return this.signedInUser
+    getArrivedUser() {
+        return this.arrivedUser
     }
 }

@@ -17,7 +17,7 @@ export class ThankyouComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.name = this.arriveService.getSignedInUser();
+    this.name = this.arriveService.getArrivedUser();
     
     setTimeout((router: Router) => {
       this.router.navigate(['start']);
