@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+    background-color: darkorange!important;
+}
+
+.btn-success {
+    color: #000000!important;
+    background-color: #ffd5a3!important;
+    border-color: #000000!important;
+}
