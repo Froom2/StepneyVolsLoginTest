@@ -8,9 +8,10 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
 import { ArriveComponent } from './arrive/arrive.component';
 import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
-import {ArriveService} from './services/arrive.service';
+import {ArriveDepartService} from './services/arrive.service';
 import {AuthService} from './services/auth.service';
-import {CanActivateViaAuthGuard} from './shared/authGuard'
+import {CanActivateViaAuthGuard} from './shared/authGuard';
+import { DepartComponent } from './depart/depart.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {CanActivateViaAuthGuard} from './shared/authGuard'
     StartComponent,
     SignInComponent,
     ThankyouComponent,
-    ArriveComponent
+    ArriveComponent,
+    DepartComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import {CanActivateViaAuthGuard} from './shared/authGuard'
     AppRoutingModule
   ],
   providers: [
-    ArriveService,
+    ArriveDepartService,
     AuthService,
     CanActivateViaAuthGuard
   ],

@@ -5,10 +5,10 @@ import { ArriveDepartService } from '../services/arrive.service';
 
 @Component({
   selector: 'app-signin',
-  templateUrl: './arrive.component.html',
-  styleUrls: ['./arrive.component.css']
+  templateUrl: './depart.component.html',
+  styleUrls: ['./depart.component.css']
 })
-export class ArriveComponent implements OnInit {
+export class DepartComponent implements OnInit {
 
   constructor(
     private router: Router,
@@ -21,10 +21,10 @@ export class ArriveComponent implements OnInit {
 
   name: string;
   
-  arrive(form: NgForm) {
+  depart(form: NgForm) {
     this.name = form.value.nameInput;
 
-    this.arriveDepartService.arriveUser(this.name);
+    this.arriveDepartService.departUser(this.name);
 
     this.router.navigate(['thankyou']);
   }

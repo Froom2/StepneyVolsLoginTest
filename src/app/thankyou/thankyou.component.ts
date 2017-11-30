@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArriveService } from '../services/arrive.service'
+import { ArriveDepartService } from '../services/arrive.service'
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ export class ThankyouComponent implements OnInit {
   name: string;
 
   constructor(
-    private arriveService: ArriveService,
+    private arriveService: ArriveDepartService,
     private router: Router
   ) { }
 

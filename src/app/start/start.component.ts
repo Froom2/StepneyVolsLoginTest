@@ -17,8 +17,12 @@ export class StartComponent implements OnInit {
   ngOnInit() {
   }
 
-  signIn() {
+  arrive() {
     this.router.navigate(['arrive']);
+  }
+
+  depart() {
+    this.router.navigate(['depart']);
   }
 
 }
