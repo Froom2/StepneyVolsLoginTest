@@ -1,41 +1,72 @@
 import * as firebase from 'firebase';
+import {Visit} from '../models/visit'
+import {VolunteerType} from '../models/volunteerType'
+import {Person} from '../models/person'
 
 export class ArriveDepartService {
-    arrivedUserName: string;
-    arrivedDateTime: Date;
 
+    personId: string
 
-    arriveUser(signedInUser: string) {
+    addPersonAndReturnId(
+        firstName: string,
+        lastName: string,
+        dateOfBirth: Date,
+        volunteerType: VolunteerType,
+        visits: Visit[]
+    ): Promise<string> {
 
-        this.arrivedUserName = signedInUser;
-        this.arrivedDateTime = new Date();
+        const person = new Person(
+            firstName,
+            lastName,
+            dateOfBirth,
+            volunteerType,
+            visits
+        )
 
-        var nowString = this.arrivedDateTime.toJSON()
-        console.log(nowString);
+        return firebase.database().ref('people').push({
+            person
+        }).then(
+            person => person.key,
+            err => ''
+        )
 
+    }
 
-        firebase.database().ref('arrival').push({
-            name: this.arrivedUserName,
-            dateTime: nowString
+    checkIfUserExists(){}
+
+    addVisitToPerson(
+        personId: string,
+        visit: Visit
+    ) {
+
+        firebase.database().ref('person').child(personId).child('visits').push({
+            visit
         });
+        
     }
 
-    departUser(signedInUser: string) {
-        
-                this.arrivedUserName = signedInUser;
-                this.arrivedDateTime = new Date();
-        
-                var nowString = this.arrivedDateTime.toJSON()
-                console.log(nowString);
-        
-        
-                firebase.database().ref('departure').push({
-                    name: this.arrivedUserName,
-                    dateTime: nowString
-                });
-            }
 
-    getArrivedUser() {
-        return this.arrivedUserName
-    }
+
+
+
+
+
+    // departUser(signedInUser: string) {
+        
+    //             this.arrivedUserName = signedInUser;
+    //             this.arrivedDateTime = new Date();
+        
+    //             var nowString = this.arrivedDateTime.toJSON()
+    //             console.log(nowString);
+        
+        
+    //             firebase.database().ref('departure').push({
+    //                 name: this.arrivedUserName,
+    //                 dateTime: nowString
+    //             });
+    //         }
+
+    // getArrivedUser() {
+    //     return this.arrivedUserName
+    // }
 }

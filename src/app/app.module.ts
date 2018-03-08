@@ -11,7 +11,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {ArriveDepartService} from './services/arrive.service';
 import {AuthService} from './services/auth.service';
 import {CanActivateViaAuthGuard} from './shared/authGuard';
-import { DepartComponent } from './depart/depart.component'
+import { DepartComponent } from './depart/depart.component';
+import { VisitReasonComponent } from './visit-reason/visit-reason.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DepartComponent } from './depart/depart.component'
     SignInComponent,
     ThankyouComponent,
     ArriveComponent,
-    DepartComponent
+    DepartComponent,
+    VisitReasonComponent
   ],
   imports: [
     BrowserModule,
