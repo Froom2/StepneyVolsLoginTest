@@ -5,7 +5,8 @@ import {Person} from '../models/person'
 
 export class ArriveDepartService {
 
-    personId: string
+    personId: string;
+    person: Person;
 
     addPersonAndReturnId(
         firstName: string,
@@ -13,7 +14,7 @@ export class ArriveDepartService {
         dateOfBirth: Date,
         volunteerType: VolunteerType,
         visits: Visit[]
-    ): Promise<string> {
+    ): PromiseLike<string> {
 
         const person = new Person(
             firstName,
@@ -21,14 +22,16 @@ export class ArriveDepartService {
             dateOfBirth,
             volunteerType,
             visits
-        )
+        );
+
+        this.person = person;
 
         return firebase.database().ref('people').push({
             person
         }).then(
-            person => person.key,
+            p => this.personId = p.key,
             err => ''
-        )
+        );
 
     }
 
@@ -42,31 +45,33 @@ export class ArriveDepartService {
         firebase.database().ref('person').child(personId).child('visits').push({
             visit
         });
-        
+
+    }
+
+    departUser(userName: string) {
+      // fill me in
     }
 
 
 
 
 
-
-
     // departUser(signedInUser: string) {
-        
+    //
     //             this.arrivedUserName = signedInUser;
     //             this.arrivedDateTime = new Date();
-        
+    //
     //             var nowString = this.arrivedDateTime.toJSON()
     //             console.log(nowString);
-        
-        
+    //
+    //
     //             firebase.database().ref('departure').push({
     //                 name: this.arrivedUserName,
     //                 dateTime: nowString
     //             });
     //         }
 
-    // getArrivedUser() {
-    //     return this.arrivedUserName
-    // }
+    getArrivedUser() {
+        return this.person.firstName;
+    }
 }

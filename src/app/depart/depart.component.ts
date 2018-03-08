@@ -10,6 +10,8 @@ import { ArriveDepartService } from '../services/arrive.service';
 })
 export class DepartComponent implements OnInit {
 
+  name: string;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -19,8 +21,6 @@ export class DepartComponent implements OnInit {
   ngOnInit() {
   }
 
-  name: string;
-  
   depart(form: NgForm) {
     this.name = form.value.nameInput;
 

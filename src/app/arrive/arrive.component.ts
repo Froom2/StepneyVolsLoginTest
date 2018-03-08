@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ArriveDepartService } from '../services/arrive.service';
+import {Visit} from '../models/visit';
 
 @Component({
   selector: 'app-signin',
@@ -9,6 +10,7 @@ import { ArriveDepartService } from '../services/arrive.service';
   styleUrls: ['./arrive.component.css']
 })
 export class ArriveComponent implements OnInit {
+  name: string;
 
   constructor(
     private router: Router,
@@ -19,12 +21,11 @@ export class ArriveComponent implements OnInit {
   ngOnInit() {
   }
 
-  name: string;
-  
   arrive(form: NgForm) {
     this.name = form.value.nameInput;
 
-    this.arriveDepartService.addVisitToPerson(this.name);
+    this.arriveDepartService.addVisitToPerson(this.arriveDepartService.personId, new Visit());
+    // i don't know what a visit is so give it some values?
 
     this.router.navigate(['thankyou']);
   }
